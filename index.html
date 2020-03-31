@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>National Park Service API</title>
+</head>
+<body>
+    <header>
+        <h1>National Park Service API: Search National Parks in your area.</h1>
+    </header>
+    <section class="search">
+        <form>
+            <label for="state">Search for parks near you</label><br>
+            <input type="text" name="state" id="state" required><br>
+            <label for="max-results">Maximum results to return</label><br>
+            <input type="number" name="max-results" id="max-results" value="10" required><br>
+            <input type="submit" id="submitbutton" value="Go!">
+        </form>
+    </section>
+    <section class="js-error-message"></section>
+    <section class="list-results">
+        <h2 class="search-results"></h2>
+        <ul></ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
