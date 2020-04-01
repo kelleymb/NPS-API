@@ -24,18 +24,22 @@ function displayResults(responseJson) {
         <p>${responseJson.data[i].description}</p>
         `);
     }
+    if (responseJson.total === '0') {
+        $('.user-error').text('Oops! Please search by state abbreviation.');
+        return;
+    }
 }
 
 //define parameters as described by NPS API
 //make a call to the NPS API to retrieve data from user input
 //format response into JSON format
 //if any errors, display on DOM
-function getSearchResults(query, maxResults = 10) {
+function getSearchResults(query, limit = 10) {
     
     const params = {
         api_key: apiKey,
-        q: query,
-        maxResults,
+        stateCode: query,
+        limit,
     };
 
     // const options = {
@@ -59,14 +63,15 @@ function getSearchResults(query, maxResults = 10) {
         .catch(error => {
             $('.js-error-message').text(`Oops! Something went wrong: ${error.message}`);
         });
-}
+    }
+
 
 //watch search form for user input
 //prevent default behavior on user click
 function formSubmit() {
     $('form').submit(event => {
         event.preventDefault();
-        const userInput = $('#state').val();
+        const userInput = $('#state').val().replace(/\s/g, "");
         const maxResults = $('#max-results').val();
         getSearchResults(userInput, maxResults);
     });

@@ -15,11 +15,12 @@
             <label for="state">Search for parks near you</label><br>
             <input type="text" name="state" id="state" required><br>
             <label for="max-results">Maximum results to return</label><br>
-            <input type="number" name="max-results" id="max-results" value="10" required><br>
+            <input type="number" name="max-results" id="max-results" max="10" value="10" required><br>
             <input type="submit" id="submitbutton" value="Go!">
         </form>
     </section>
     <section class="js-error-message"></section>
+    <section class="user-error"></section>
     <section class="list-results">
         <h2 class="search-results"></h2>
         <ul></ul>
